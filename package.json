@@ -1,8 +1,8 @@
 {
-  "name": "vue-gapi-example",
+  "name": "PiDay",
   "version": "0.1.0",
-  "description": "Example application how to use the vue-gapi plugin. The application uses Vuetify.",
-  "author": "nidkil <info@nidkil.com>",
+  "description": "Daily planner with vue-gapi.",
+  "author": "Ben Fritzeen <bfritzeen@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve --colorsgoo",
     "build": "vue-cli-service build --production",
@@ -34,16 +34,9 @@
     "vue-template-compiler": "^2.5.17",
     "vuetify-loader": "^1.0.5"
   },
-  "homepage": "https://github.com/nidkil/vue-gapi-example#readme",
-  "bugs": {
-    "url": "https://github.com/nidkil/vue-gapi-example/issues"
-  },
+  "homepage": "https://github.com/benfritzeen/PiDay#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nidkil/vue-gapi-example.git"
-  },
-  "license": {
-    "type": "MIT",
-    "url": "http://www.opensource.org/licenses/mit-license.php"
+    "url": "git+https://github.com/benfritzeen/PiDay.git"
   }
 }
