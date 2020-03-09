@@ -10,7 +10,7 @@
           vertical
       ></v-divider>
       <v-spacer></v-spacer>
-      <v-btn
+      <!-- <v-btn
           flat
           to="/monday"
       >
@@ -51,7 +51,7 @@
           to="/sunday"
       >
         <span class="mr-0">Sunday</span>
-      </v-btn>
+      </v-btn> -->
       <v-btn
           flat
           to="/auth"
