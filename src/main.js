@@ -1,13 +1,22 @@
-import Vue from 'vue'
-import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Vue from "vue";
+import "./plugins/vuetify";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import "./plugins/vue-gapi";
+import "./plugins/vue-clipboard-2";
+import moment from "moment";
 
-import App from './App.vue'
-
-Vue.use(BootstrapVue)
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+Vue.filter("formatDate", function(value) {
+  if (value) {
+    // eslint-disable-next-line
+    return moment(String(value)).format('dddd, MMMM Do YYYY, h:mm:ss a')
+  }
+});
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");

@@ -1,43 +1,49 @@
 {
-  "name": "piday",
+  "name": "vue-gapi-example",
   "version": "0.1.0",
-  "private": true,
+  "description": "Example application how to use the vue-gapi plugin. The application uses Vuetify.",
+  "author": "nidkil <info@nidkil.com>",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "vue-cli-service serve --colorsgoo",
+    "build": "vue-cli-service build --production",
+    "lint": "vue-cli-service lint",
+    "deploy": "npm run build --production; push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
-    "bootstrap-vue": "^2.4.2",
-    "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "moment": "^2.24.0",
+    "vue": "^2.5.17",
+    "vue-clipboard2": "^0.2.1",
+    "vue-gapi": "^0.1.2",
+    "vue-router": "^3.0.1",
+    "vuetify": "^1.3.5",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.2.0",
-    "@vue/cli-plugin-eslint": "~4.2.0",
-    "@vue/cli-service": "~4.2.0",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.1.2",
-    "vue-template-compiler": "^2.6.11"
+    "@vue/cli-plugin-babel": "^3.0.4",
+    "@vue/cli-plugin-eslint": "^3.0.4",
+    "@vue/cli-service": "^3.0.4",
+    "@vue/eslint-config-prettier": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-config-vue": "^2.0.2",
+    "eslint-plugin-vue": "^5.0.0-0",
+    "push-dir": "^0.4.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue-cli-plugin-vuetify": "^0.4.5",
+    "vue-template-compiler": "^2.5.17",
+    "vuetify-loader": "^1.0.5"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
+  "homepage": "https://github.com/nidkil/vue-gapi-example#readme",
+  "bugs": {
+    "url": "https://github.com/nidkil/vue-gapi-example/issues"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nidkil/vue-gapi-example.git"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  }
 }
