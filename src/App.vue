@@ -10,48 +10,6 @@
           vertical
       ></v-divider>
       <v-spacer></v-spacer>
-      <!-- <v-btn
-          flat
-          to="/monday"
-      >
-        <span class="mr-0">Monday</span>
-      </v-btn>
-      <v-btn
-          flat
-          to="/tuesday"
-      >
-        <span class="mr-0">Tuesday</span>
-      </v-btn>
-      <v-btn
-          flat
-          to="/wednesday"
-      >
-        <span class="mr-0">Wednesday</span>
-      </v-btn>
-      <v-btn
-          flat
-          to="/thursday"
-      >
-        <span class="mr-0">Thursday</span>
-      </v-btn>
-      <v-btn
-          flat
-          to="/friday"
-      >
-        <span class="mr-0">Friday</span>
-      </v-btn>
-      <v-btn
-          flat
-          to="/saturday"
-      >
-        <span class="mr-0">Saturday</span>
-      </v-btn>
-      <v-btn
-          flat
-          to="/sunday"
-      >
-        <span class="mr-0">Sunday</span>
-      </v-btn> -->
       <v-btn
           flat
           to="/auth"
@@ -108,8 +66,8 @@ export default {
     return {
       infoItems: [
         {
-          title: "test menu item (to monday)",
-          link: "/monday",
+          title: "test menu item (to calendar)",
+          link: "/calendar",
           divider: true
         }
       ]

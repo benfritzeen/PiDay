@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="events">
     <v-layout
         column
     >
@@ -60,3 +60,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.events {
+  width: 100vh;
+}
+</style>
