@@ -11,7 +11,7 @@ Vue.config.productionTip = false;
 Vue.filter("formatDate", function(value) {
   if (value) {
     // eslint-disable-next-line
-    return moment(String(value)).format('dddd, MMMM Do YYYY, h:mm:ss a')
+    return moment(String(value)).format('dddd, h:mm a')
   }
 });
 
