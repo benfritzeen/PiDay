@@ -44,34 +44,6 @@ export default new Router({
         import(/* webpackChunkName: "about" */ "./views/About.vue")
     },
     {
-      path: "/monday",
-      name: "Monday"
-    },
-    {
-      path: "/tuesday",
-      name: "Tuesday"
-    },
-    {
-      path: "/wednesday",
-      name: "Wednesday"
-    },
-    {
-      path: "/thursday",
-      name: "Thursday"
-    },
-    {
-      path: "/friday",
-      name: "Friday"
-    },
-    {
-      path: "/saturday",
-      name: "Saturday"
-    },
-    {
-      path: "/sunday",
-      name: "Sunday"
-    },
-    {
       path: "*",
       component: PageNotFound
     }

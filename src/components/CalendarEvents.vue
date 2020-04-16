@@ -8,7 +8,7 @@
       </v-flex>
       <v-flex v-if="events" mb-4>
         <div v-for="(event, idx) in events" :key="idx">
-          {{ event.summary }} {{": "}} {{ event.start.dateTime | formatDate}} {{" => "}} {{ event.end.dateTime | formatDate}}
+            {{ event.summary }} {{": "}} {{ event.start | formatDate(event.end)}}
         </div>
       </v-flex>
       <v-flex v-else mb-4>
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import moment from "moment";
+
 export default {
   name: "CalendarEvents",
   props: {
@@ -57,6 +59,20 @@ export default {
   },
   async created() {
     await this.retrieveEvents();
+  },
+  filters: {
+    formatDate: (start, end) => {
+      if (start.date && end.date) {
+        // eslint-disable-next-line
+        return "All Day " + moment(String(start.date)).format('dddd');
+      } else {
+        // eslint-disable-next-line
+        const formattedStart = moment(String(start.dateTime)).format('dddd, h:mm a');
+        // eslint-disable-next-line
+        const formattedEnd = moment(String(end.dateTime)).format('h:mm a');
+        return formattedStart + " to " + formattedEnd;
+      }
+    }
   }
 };
 </script>

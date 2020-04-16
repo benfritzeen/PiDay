@@ -9,6 +9,22 @@
           inset
           vertical
       ></v-divider>
+      <v-toolbar-title class="headline">
+        <div style="text-decoration:none; color: black">{{date}}</div>
+      </v-toolbar-title>
+      <v-divider
+          class="mx-3"
+          inset
+          vertical
+      ></v-divider>
+      <v-toolbar-title class="headline">
+        <div style="text-decoration:none; color: black">{{time}}</div>
+      </v-toolbar-title>
+      <v-divider
+          class="mx-3"
+          inset
+          vertical
+      ></v-divider>
       <v-spacer></v-spacer>
       <v-btn
           flat
@@ -44,6 +60,7 @@
             <v-list-tile
                 :key="index"
                 :to="infoItem.link"
+                :@click="infoItem.onClick"
             >
               <v-list-tile-title>{{ infoItem.title }}</v-list-tile-title>
             </v-list-tile>
@@ -60,15 +77,23 @@
 </template>
 
 <script>
+import moment from "moment";
+
 export default {
   name: "App",
   data() {
     return {
+      time: moment().format("LT"),
+      date: moment().format("l"),
       infoItems: [
         {
           title: "test menu item (to calendar)",
           link: "/calendar",
           divider: true
+        },
+        {
+          title: "Reboot",
+          onClick: this.reboot()
         }
       ]
     };
@@ -76,11 +101,19 @@ export default {
   created() {
     try {
       // NOTE: Google recommends 45 min refresh policy
-      window.setInterval(this.$gapi.refreshToken(), 1000 * 60 * 45);
+      window.setInterval(this.$refreshToken().then, 1000 * 60 * 45);
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e);
     }
+  },
+  methods: {
+    reboot() {}
+  },
+  mounted: function() {
+    setInterval(() => {
+      this.time = moment().format("LT");
+    }, 1000);
   }
 };
 </script>

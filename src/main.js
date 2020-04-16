@@ -5,15 +5,8 @@ import router from "./router";
 import store from "./store";
 import "./plugins/vue-gapi";
 import "./plugins/vue-clipboard-2";
-import moment from "moment";
 
 Vue.config.productionTip = false;
-Vue.filter("formatDate", function(value) {
-  if (value) {
-    // eslint-disable-next-line
-    return moment(String(value)).format('dddd, h:mm a')
-  }
-});
 
 new Vue({
   router,
