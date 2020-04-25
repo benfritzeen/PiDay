@@ -9,22 +9,13 @@
           inset
           vertical
       ></v-divider>
-      <v-toolbar-title class="headline">
-        <div style="text-decoration:none; color: black">{{date}}</div>
-      </v-toolbar-title>
-      <v-divider
-          class="mx-3"
-          inset
-          vertical
-      ></v-divider>
-      <v-toolbar-title class="headline">
-        <div style="text-decoration:none; color: black">{{time}}</div>
-      </v-toolbar-title>
-      <v-divider
-          class="mx-3"
-          inset
-          vertical
-      ></v-divider>
+      <v-spacer></v-spacer>
+      <v-btn flat class="mr-0">
+        <div>{{time}}</div>
+      </v-btn>
+      <v-btn flat class="mr-0">
+        <div>{{date}}</div>
+      </v-btn>
       <v-spacer></v-spacer>
       <v-btn
           flat
@@ -56,16 +47,17 @@
           <v-icon>more_vert</v-icon>
         </v-btn>
         <v-list>
-          <template v-for="(infoItem, index) in infoItems">
-            <v-list-tile
-                :key="index"
-                :to="infoItem.link"
-                :@click="infoItem.onClick"
-            >
-              <v-list-tile-title>{{ infoItem.title }}</v-list-tile-title>
-            </v-list-tile>
-            <v-divider v-if="infoItem.divider" :key="index + 10"></v-divider>
-          </template>
+          <v-list-tile
+            to="/calendar"
+          >
+            <v-list-tile-title>{{ "Test List Item" }}</v-list-tile-title>
+          </v-list-tile>
+          <v-divider></v-divider>
+          <v-list-tile
+            @click.native="reboot"
+          >
+            <v-list-tile-title>{{ "Reboot" }}</v-list-tile-title>
+          </v-list-tile>
         </v-list>
       </v-menu>
     </v-toolbar>
@@ -93,7 +85,7 @@ export default {
         },
         {
           title: "Reboot",
-          onClick: this.reboot()
+          click: this.reboot()
         }
       ]
     };
@@ -108,11 +100,17 @@ export default {
     }
   },
   methods: {
-    reboot() {}
+    reboot() {
+      // const { spawn } = require("child_process");
+      // spawn("pwd");
+    }
   },
   mounted: function() {
     setInterval(() => {
       this.time = moment().format("LT");
+    }, 1000);
+    setInterval(() => {
+      this.date = moment().format("l");
     }, 1000);
   }
 };
