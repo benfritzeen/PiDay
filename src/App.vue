@@ -9,7 +9,6 @@
           inset
           vertical
       ></v-divider>
-      <v-spacer></v-spacer>
       <v-btn flat class="mr-0">
         <div>{{time}}</div>
       </v-btn>
