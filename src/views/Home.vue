@@ -1,13 +1,13 @@
 <template>
-  <tiles />
+  <homeTiles />
 </template>
 
 <script>
-import Tiles from "../components/Tiles";
+import HomeTiles from "../components/HomeTiles";
 
 export default {
   components: {
-    Tiles
+    HomeTiles
   }
 };
 </script>

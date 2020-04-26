@@ -4,8 +4,8 @@
       <v-flex xs12 sm6 md4 lg3 v-for="card in cards" :key="card.tile">
         <v-card
             :color="card.color"
-            dark
             class="ma-3"
+            raised
           >
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
@@ -15,7 +15,7 @@
                 ></v-card-title>
 
                 <v-card-actions>
-                  <v-btn text>Play Now</v-btn>
+                  <v-btn text color="#F0F8FF">Play Now</v-btn>
                 </v-card-actions>
               </div>
 
@@ -38,22 +38,19 @@ export default {
   data: () => ({
     cards: [
       {
-        color: "#1F7087",
+        color: "#D3D3D3",
         src: require("../assets/tictactoe.gif"),
-        title: "Tic Tac Toe",
-        flex: "12"
+        title: "Tic Tac Toe"
       },
       {
-        color: "#1F7087",
+        color: "#D3D3D3",
         src: require("../assets/othello.png"),
-        title: "Othello",
-        flex: "6"
+        title: "Othello"
       },
       {
-        color: "#1F7087",
+        color: "#D3D3D3",
         src: require("../assets/connect4.png"),
-        title: "Connect Four",
-        flex: "6"
+        title: "Connect Four"
       }
     ]
   })

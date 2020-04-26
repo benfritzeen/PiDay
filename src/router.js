@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home";
 import Auth from "./views/Auth";
 import Calendar from "./views/Calendar";
+import Games from "./views/Games";
 import PageNotFound from "./views/PageNotFound";
 
 Vue.use(Router);
@@ -42,6 +43,11 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue")
+    },
+    {
+      path: "/games",
+      name: "Games",
+      component: Games
     },
     {
       path: "*",
