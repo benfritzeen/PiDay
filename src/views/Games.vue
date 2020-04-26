@@ -9,7 +9,7 @@
           xs12
       >
         <h2 class="headline font-weight-bold mb-3">Games</h2>
-        <v-container class="my-5">
+        <v-container>
           <v-layout row wrap>
             <v-flex xs12 sm6 md4 lg3 v-for="card in cards" :key="card.tile">
               <v-card
@@ -25,7 +25,7 @@
                       ></v-card-title>
 
                       <v-card-actions>
-                        <v-btn text color="#F0F8FF">Play</v-btn>
+                        <v-btn :to="card.to" text color="#F0F8FF">Play</v-btn>
                       </v-card-actions>
                     </div>
 
@@ -53,7 +53,8 @@ export default {
       {
         color: "#D3D3D3",
         src: require("../assets/tictactoe.png"),
-        title: "Tic Tac Toe"
+        title: "Tic Tac Toe",
+        to: "/games/tictactoe"
       },
       {
         color: "#D3D3D3",

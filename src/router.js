@@ -4,6 +4,10 @@ import Home from "./views/Home";
 import Auth from "./views/Auth";
 import Calendar from "./views/Calendar";
 import Games from "./views/Games";
+import TicTacToe from "./components/TicTacToe";
+import Weather from "./components/Weather";
+import Stocks from "./components/Stocks";
+import Quotes from "./components/Quotes";
 import PageNotFound from "./views/PageNotFound";
 
 Vue.use(Router);
@@ -48,6 +52,26 @@ export default new Router({
       path: "/games",
       name: "Games",
       component: Games
+    },
+    {
+      path: "/games/tictactoe",
+      name: "TicTacToe",
+      component: TicTacToe
+    },
+    {
+      path: "/weather",
+      name: "Weather",
+      component: Weather
+    },
+    {
+      path: "/stocks",
+      name: "Stocks",
+      component: Stocks
+    },
+    {
+      path: "/quotes",
+      name: "Quotes",
+      component: Quotes
     },
     {
       path: "*",

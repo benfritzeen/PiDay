@@ -9,7 +9,7 @@
           xs12
       >
         <h2 class="headline font-weight-bold mb-3">Home</h2>
-        <v-container class="my-5">
+        <v-container>
             <v-layout row wrap>
             <v-flex xs12 sm6 md4 lg3 v-for="card in cards" :key="card.tile">
                 <v-card
@@ -49,13 +49,13 @@ export default {
         color: "#D3D3D3",
         icon: "cloud",
         title: "Weather",
-        to: "/games"
+        to: "/weather"
       },
       {
         color: "#D3D3D3",
         icon: "show_chart",
         title: "Stocks",
-        to: "/games"
+        to: "/stocks"
       },
       {
         color: "#D3D3D3",
@@ -67,7 +67,7 @@ export default {
         color: "#D3D3D3",
         icon: "format_quote",
         title: "Quotes",
-        to: "/games"
+        to: "/quotes"
       }
     ]
   })
