@@ -25,17 +25,11 @@
                         ></v-card-title>
 
                         <v-card-actions>
-                        <v-btn :to="card.to" text color="#F0F8FF">Play Now</v-btn>
+                        <v-btn :to="card.to" text color="#F0F8FF">Open</v-btn>
                         </v-card-actions>
                     </div>
 
-                    <v-avatar
-                        class="ma-3"
-                        size="110"
-                        tile
-                    >
-                        <img :src="card.src">
-                    </v-avatar>
+                    <v-icon size="100">{{card.icon}}</v-icon>
                     </div>
                 </v-card>
             </v-flex>
@@ -53,8 +47,26 @@ export default {
     cards: [
       {
         color: "#D3D3D3",
-        src: require("../assets/controller.png"),
+        icon: "cloud",
+        title: "Weather",
+        to: "/games"
+      },
+      {
+        color: "#D3D3D3",
+        icon: "show_chart",
+        title: "Stocks",
+        to: "/games"
+      },
+      {
+        color: "#D3D3D3",
+        icon: "sports_esports",
         title: "Games",
+        to: "/games"
+      },
+      {
+        color: "#D3D3D3",
+        icon: "format_quote",
+        title: "Quotes",
         to: "/games"
       }
     ]

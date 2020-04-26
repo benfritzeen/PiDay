@@ -25,13 +25,13 @@
                       ></v-card-title>
 
                       <v-card-actions>
-                        <v-btn text color="#F0F8FF">Play Now</v-btn>
+                        <v-btn text color="#F0F8FF">Play</v-btn>
                       </v-card-actions>
                     </div>
 
                     <v-avatar
                       class="ma-3"
-                      size="110"
+                      size="125"
                       tile
                     >
                       <img :src="card.src">
@@ -52,7 +52,7 @@ export default {
     cards: [
       {
         color: "#D3D3D3",
-        src: require("../assets/tictactoe.gif"),
+        src: require("../assets/tictactoe.png"),
         title: "Tic Tac Toe"
       },
       {
