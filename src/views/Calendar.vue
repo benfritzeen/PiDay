@@ -1,28 +1,41 @@
 <template>
-  <v-layout
-      column
-  >
-    <div v-if="googleCalendarApi">
-      <v-flex xs6>
-        <calendar-select
-            :googleCalendarApi="googleCalendarApi"
-            :calendarId="calendarId"
-            @calendar-changed="calendarChanged"
-        />
+  <v-container>
+    <v-layout
+        text-xs-center
+        wrap
+    >
+      <v-flex
+          mb-5
+          xs12
+      >
+        <h2 class="headline font-weight-bold mb-3">Calendar</h2>
+        <v-layout
+            column
+        >
+          <div v-if="googleCalendarApi">
+            <v-flex xs6>
+              <calendar-select
+                  :googleCalendarApi="googleCalendarApi"
+                  :calendarId="calendarId"
+                  @calendar-changed="calendarChanged"
+              />
+            </v-flex>
+            <v-flex xs6>
+              <calendar-events
+                  :googleCalendarApi="googleCalendarApi"
+                  :calendarId="calendarId"
+              />
+            </v-flex>
+          </div>
+          <v-container v-else>
+            <v-flex xs6>
+              Loading data...
+            </v-flex>
+          </v-container>
+        </v-layout>
       </v-flex>
-      <v-flex xs6>
-        <calendar-events
-            :googleCalendarApi="googleCalendarApi"
-            :calendarId="calendarId"
-        />
-      </v-flex>
-    </div>
-    <v-container v-else>
-      <v-flex xs6>
-        Loading data...
-      </v-flex>
-    </v-container>
-  </v-layout>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>

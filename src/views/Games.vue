@@ -1,33 +1,46 @@
 <template>
-  <v-container class="my-5">
-    <v-layout row wrap>
-      <v-flex xs12 sm6 md4 lg3 v-for="card in cards" :key="card.tile">
-        <v-card
-            :color="card.color"
-            class="ma-3"
-            raised
-          >
-            <div class="d-flex flex-no-wrap justify-space-between">
-              <div>
-                <v-card-title
-                  class="headline"
-                  v-text="card.title"
-                ></v-card-title>
+  <v-container>
+    <v-layout
+        text-xs-center
+        wrap
+    >
+      <v-flex
+          mb-5
+          xs12
+      >
+        <h2 class="headline font-weight-bold mb-3">Games</h2>
+        <v-container class="my-5">
+          <v-layout row wrap>
+            <v-flex xs12 sm6 md4 lg3 v-for="card in cards" :key="card.tile">
+              <v-card
+                  :color="card.color"
+                  class="ma-3"
+                  raised
+                >
+                  <div class="d-flex flex-no-wrap justify-space-between">
+                    <div>
+                      <v-card-title
+                        class="headline"
+                        v-text="card.title"
+                      ></v-card-title>
 
-                <v-card-actions>
-                  <v-btn text color="#F0F8FF">Play Now</v-btn>
-                </v-card-actions>
-              </div>
+                      <v-card-actions>
+                        <v-btn text color="#F0F8FF">Play Now</v-btn>
+                      </v-card-actions>
+                    </div>
 
-              <v-avatar
-                class="ma-3"
-                size="110"
-                tile
-              >
-                <img :src="card.src">
-              </v-avatar>
-            </div>
-          </v-card>
+                    <v-avatar
+                      class="ma-3"
+                      size="110"
+                      tile
+                    >
+                      <img :src="card.src">
+                    </v-avatar>
+                  </div>
+                </v-card>
+            </v-flex>
+          </v-layout>
+        </v-container>
       </v-flex>
     </v-layout>
   </v-container>
