@@ -10,6 +10,7 @@
     "deploy": "npm run build --production; push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "moment": "^2.24.0",
     "vue": "^2.5.17",
     "vue-clipboard2": "^0.2.1",

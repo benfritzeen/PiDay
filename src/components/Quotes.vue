@@ -48,14 +48,16 @@ export default {
       },
       {
         color: "#D3D3D3",
-        text: "Discipline is just choosing between what you want now, and what you want most.",
-        author: "Unknown",
+        text:
+          "Discipline is just choosing between what you want now, and what you want most.",
+        author: "-Unknown",
         size: "sm6"
       },
       {
         color: "#D3D3D3",
-        text: "A society grows great when old men plant trees in whose shade they know they will never sit.",
-        author: "Unknown",
+        text:
+          "A society grows great when old men plant trees in whose shade they know they will never sit.",
+        author: "-Unknown",
         size: "sm6"
       }
     ]
