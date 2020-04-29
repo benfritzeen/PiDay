@@ -24,9 +24,23 @@
               <td>
                 {{ props.item["09. change"] }}
               </td>
+              <td>
+                <v-btn
+                  @click="refreshStock(props.item['01. symbol'])"
+                >
+                  <span class="mr-0">Refresh</span>
+                </v-btn>
+              </td>
             </tr>
           </template>
         </v-data-table>
+        <div class="text-center pt-2">
+        <v-btn
+          @click="refreshStocks"
+        >
+          <span class="mr-0">Refresh All</span>
+        </v-btn>
+        </div>
       </v-flex>
     </v-layout>
   </v-container>
@@ -34,6 +48,7 @@
 
 <script>
 import axios from "axios";
+import _ from 'lodash';
 const apiKey = process.env.VUE_APP_STOCK_API_KEY;
 
 export default {
@@ -47,19 +62,35 @@ export default {
         value: "[01. symbol]"
       },
       { text: "Price", value: "[05. price]", align: "center" },
-      { text: "Change", value: "[09. price]", align: "center" }
+      { text: "Change", value: "[09. price]", align: "center" },
+      { text: "Refresh", align: "center" }
     ],
     stocks: [],
     stockSymbols: ["AAPL", "NVDA", "FB", "AMZN", "SHOP"]
   }),
-  async created() {
-    var symbol;
-    console.log(apiKey);
-    for (symbol in this.stockSymbols) {
+  methods: {
+    async refreshStocks() {
+      this.stocks = [];
+      var symbol;
+      for (symbol in this.stockSymbols) {
+        await axios
+          .get(
+            "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" +
+              this.stockSymbols[symbol] +
+              "&apikey=" +
+              apiKey
+          )
+          .then(response => {
+            this.stocks.push(response.data["Global Quote"]);
+          });
+      }
+    },
+    async refreshStock(symbol) {
+      this.stocks = _.remove(this.stocks, function(stock) { return stock["01. symbol"] != symbol});
       await axios
         .get(
           "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" +
-            this.stockSymbols[symbol] +
+            symbol +
             "&apikey=" +
             apiKey
         )
@@ -67,6 +98,9 @@ export default {
           this.stocks.push(response.data["Global Quote"]);
         });
     }
+  },
+  async created() {
+    this.refreshStocks();
   }
 };
 </script>

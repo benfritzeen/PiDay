@@ -4,7 +4,8 @@ import {
   VApp, // required
   VNavigationDrawer,
   VFooter,
-  VToolbar
+  VToolbar,
+  VCalendar
 } from "vuetify/lib";
 import "@/stylus/main.styl";
 
@@ -14,7 +15,8 @@ Vue.use(Vuetify, {
     VApp,
     VNavigationDrawer,
     VFooter,
-    VToolbar
+    VToolbar,
+    VCalendar
   },
   theme: {
     primary: "#EBB94F",
