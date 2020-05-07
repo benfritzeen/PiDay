@@ -48,7 +48,7 @@
 
 <script>
 import axios from "axios";
-import _ from 'lodash';
+import _ from "lodash";
 const apiKey = process.env.VUE_APP_STOCK_API_KEY;
 
 export default {
@@ -86,7 +86,9 @@ export default {
       }
     },
     async refreshStock(symbol) {
-      this.stocks = _.remove(this.stocks, function(stock) { return stock["01. symbol"] != symbol});
+      this.stocks = _.remove(this.stocks, function(stock) {
+        return stock["01. symbol"] != symbol;
+      });
       await axios
         .get(
           "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" +

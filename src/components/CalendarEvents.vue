@@ -1,4 +1,3 @@
-<template>
   <!-- <v-container class="events">
     <v-layout
         column
@@ -16,19 +15,19 @@
       </v-flex>
     </v-layout>
   </v-container> -->
+<template>
   <v-calendar
     ref="calendar"
     :now="today"
     :value="today"
     :events="events"
+    color="primary"
     type="week"
   ></v-calendar>
-
 </template>
 
 <script>
 import moment from "moment";
-import { VCalendar } from 'vuetify/lib'
 
 export default {
   name: "CalendarEvents",
@@ -43,26 +42,10 @@ export default {
       default: null
     }
   },
-  components: { VCalendar },
   data: () => ({
-    //events: null,
-    today: '2019-01-08',
-    events: [
-      {
-        name: 'Weekly Meeting',
-        start: '2019-01-07 09:00',
-        end: '2019-01-07 10:00',
-      },
-      {
-        name: 'Thomas\' Birthday',
-        start: '2019-01-10',
-      },
-      {
-        name: 'Mash Potatoes',
-        start: '2019-01-09 12:30',
-        end: '2019-01-09 15:30',
-      },
-    ],
+    rawEvents: null,
+    events: [],
+    today: "2020-04-029",
   }),
   methods: {
     async retrieveEvents() {
@@ -70,22 +53,46 @@ export default {
       if (calendar) {
         try {
           const today = new Date();
-          this.events = await calendar.retrieveEvents(this.calendarId, today);
+          this.rawEvents = await calendar.retrieveEvents(this.calendarId, today);
+          this.formatEvents();
         } catch (err) {
           // eslint-disable-next-line no-console
           console.error("Failed to retrieve events", err);
         }
       }
+    },
+    formatEvents() {
+      this.events = [];
+      var i;
+      for (i in this.rawEvents) {
+        var event = {
+          name: null,
+          start: null,
+          end: null,
+        };
+        var rawEvent = this.rawEvents[i];
+        if (rawEvent.summary) {
+          event.name = rawEvent.summary;
+        }
+        if (rawEvent.start) {
+          event.start = rawEvent.start.dateTime;
+        }
+        if (rawEvent.end) {
+          event.end = rawEvent.end.dateTime;
+        }
+        this.events.push(event);
+      }
+      console.log(this.events);
     }
   },
   watch: {
     // eslint-disable-next-line no-unused-vars
-    //calendarId: function(newVal, oldVal) {
-    //  this.retrieveEvents();
-    //}
+    calendarId: function(newVal, oldVal) {
+     this.retrieveEvents();
+    }
   },
   async created() {
-    //await this.retrieveEvents();
+    await this.retrieveEvents();
   },
   filters: {
     formatDate: (start, end) => {
