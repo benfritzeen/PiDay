@@ -1,4 +1,5 @@
-  <!-- <v-container class="events">
+<template>
+  <v-container class="events">
     <v-layout
         column
     >
@@ -14,16 +15,15 @@
         No upcoming events found.
       </v-flex>
     </v-layout>
-  </v-container> -->
-<template>
-  <v-calendar
+  </v-container>
+  <!-- <v-calendar
     ref="calendar"
     :now="today"
     :value="today"
     :events="events"
     color="primary"
     type="week"
-  ></v-calendar>
+  ></v-calendar> -->
 </template>
 
 <script>
@@ -43,9 +43,7 @@ export default {
     }
   },
   data: () => ({
-    rawEvents: null,
     events: [],
-    today: "2020-04-029",
   }),
   methods: {
     async retrieveEvents() {
@@ -53,8 +51,8 @@ export default {
       if (calendar) {
         try {
           const today = new Date();
-          this.rawEvents = await calendar.retrieveEvents(this.calendarId, today);
-          this.formatEvents();
+          this.events = await calendar.retrieveEvents(this.calendarId, today);
+          //this.formatEvents();
         } catch (err) {
           // eslint-disable-next-line no-console
           console.error("Failed to retrieve events", err);
