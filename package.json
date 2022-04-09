@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "vue": "^2.5.17",
     "vue-clipboard2": "^0.2.1",
     "vue-gapi": "^0.1.2",
